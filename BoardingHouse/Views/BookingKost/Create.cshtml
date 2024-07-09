@@ -1,0 +1,113 @@
+﻿@model List<DataKost>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-pink text-white text-center">
+                <h3>Booking Lily Kost🌺</h3>
+            </div>
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" asp-action="Create" asp-controller="BookingKost">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" id="name" name="Name" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Nomor Telepon</label>
+                        <input type="text" id="phoneNumber" name="PhoneNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="idCardNumber" class="form-label">Nomor Induk Kependudukan</label>
+                        <input type="text" id="idCardNumber" name="IDCardNumber" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="work" class="form-label">Pekerjaan</label>
+                        <input type="text" id="work" name="Work" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="count" class="form-label">Jumlah Kamar</label>
+                        <input type="text" id="count" name="Count" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="dataKost" class="form-label">Select Kost</label>
+                        <select id="dataKost" name="DataKost" class="form-select">
+                            <option value="">Pilih Kost</option>
+                            @foreach (var kost in Model)
+                            {
+                                <option value="@kost.Id">@kost.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <a href="/Home/Index" class="btn btn-secondary">Kembali</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-pink {
+        background: linear-gradient(90deg, rgba(255,105,180,1) 0%, rgba(255,182,193,1) 100%);
+    }
+
+    .text-white {
+        color: #fff;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .card-header {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .card-body {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    .form-select {
+        width: 100%;
+        padding: .375rem 1.75rem .375rem .75rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        appearance: none;
+    }
+</style>

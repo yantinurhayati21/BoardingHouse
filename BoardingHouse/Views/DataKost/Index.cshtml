@@ -1,0 +1,85 @@
+﻿@model List<DataKost>
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="card mt-4">
+    <div class="card-header text-center">
+        <h3 style="color:white">Data Kost - Beautiful Sakura Residence 🌸🌸🌸</h3>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-end mb-3">
+            <a href="datakost/create" class="btn btn-primary">Add</a>
+        </div>
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Harga Per Bulan</th>
+                    <th>Jumlah Kamar Tersedia</th>
+                    <th>Gambar</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var kost in Model)
+                {
+                    <tr>
+                        <td>@kost.Name</td>
+                        <td>@kost.Address</td>
+                        <td>@kost.Price</td>
+                        <td>@kost.Room</td>
+                        <td>
+                            <img src="~/Upload/@kost.Photo" alt="Gambar-Kost" class="img-thumbnail" style="height:100px; width:100px;">
+                        </td>
+                        <td>
+                            <a href="datakost/edit/@kost.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="datakost/delete/@kost.Id" class="btn btn-sm btn-danger">Hapus</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .card-header {
+        background: linear-gradient(90deg, rgba(255,105,180,1) 0%, rgba(255,182,193,1) 100%);
+        color: #fff;
+    }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-primary:hover {
+            background-color: #ff69b4;
+            border-color: #ff69b4;
+        }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-danger:hover {
+            background-color: #ff4d6d;
+            border-color: #ff4d6d;
+        }
+
+    .table thead {
+        background-color: white;
+        color: #fff;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .img-thumbnail {
+        border: none;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+</style>

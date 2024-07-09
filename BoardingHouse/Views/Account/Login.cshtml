@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="card mx-auto mt-5 shadow-lg" style="max-width: 400px;">
+    <div class="card-header bg-pink text-white text-center">
+        <h3 style="color: white">LOGIN ADMIN BEAUTIFUL SAKURA RESIDENCE🌸</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" action="login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="Username" class="form-control" placeholder="Enter your username" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="Password" class="form-control" placeholder="Enter your password" />
+            </div>
+            <div class="form-check mt-3">
+                <input type="checkbox" class="form-check-input" id="rememberMe" value="remember-me">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-pink btn-block mt-4">Login</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .bg-pink {
+        background-color: #ff69b4;
+    }
+
+    .btn-pink {
+        background-color: #ff69b4;
+        color: #fff;
+    }
+
+        .btn-pink:hover {
+            background-color: #ff85c1;
+            color: #fff;
+        }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .card-header {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+</style>
